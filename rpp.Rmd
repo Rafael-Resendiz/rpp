@@ -1,0 +1,70 @@
+---
+title       : Slidify
+subtitle    : Data meets presentation
+author      : Rafael Reséndiz, Proffesor of Educative Assesment
+job         : UABC, Xochicalco
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+
+---
+
+## **Reproducible Pitch Presentation**
+
+
+### 1. Knowing "Data meets presentation"
+### 2. Statistical inference and simulation
+### 3. Data basic plot
+### *  Hiperlink a Rpubs (http://rpubs.com/Rafael-Resendiz/RPP)
+
+
+--- .class #id 
+
+## 1. Knowing "Data meets presentation"
+
+Load files and datasets and and have fun with them
+```{r}
+data(iris)  # Load data
+lm(iris)    # Make a lineal regression
+```
+
+--- .class #id 
+
+
+## 2. Statistical inference and simulation
+Setting the global options
+Example: The exponential distribution
+```{r}
+lambda = 0.2           # lambda for all simulations
+n = 40                 # number of exponential random variables
+nsims = 1:10000        # number of simulated averages
+set.seed(901)
+means <- data.frame(x=sapply(nsims,function(x) {mean(rexp(n,lambda))})) # necessary means
+head(means,2)          # show the results
+str(means)             # See a summary of the results
+```
+
+--- .class #id 
+
+
+## Statistical inference in the real life
+
+```{r}
+fit <- lm(iris)   # Work with real data
+confint(fit)      # Identify intercepts and others
+summary(fit$residuals)
+```
+
+--- .class #id 
+## Data basic plot
+Plot your results and identify your creativity
+```{r, echo=FALSE}
+library(ggplot2)
+ggplot(data = means, aes(x = x)) +
+geom_histogram(aes(y=..density..), fill = I('#00e6ff'),
+binwidth = 0.1, color = I('red')) +
+stat_function(fun = dnorm, arg = list(mean = 5, sd = sd(means$x)))
+```

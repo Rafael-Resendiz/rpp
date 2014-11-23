@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slidify</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Slidify">
+  <meta name="author" content="Rafael Reséndiz, Proffesor of Educative Assesment">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Slidify</h1>
+    <h2>Data meets presentation</h2>
+    <p>Rafael Reséndiz, Proffesor of Educative Assesment<br/>UABC, Xochicalco</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2><strong>Reproducible Pitch Presentation</strong></h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>1. Knowing &quot;Data meets presentation&quot;</h3>
+
+<h3>2. Statistical inference and simulation</h3>
+
+<h3>3. Data basic plot</h3>
+
+<h3>*  Hiperlink a Rpubs (<a href="http://rpubs.com/Rafael-Resendiz/RPP">http://rpubs.com/Rafael-Resendiz/RPP</a>)</h3>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>1. Knowing &quot;Data meets presentation&quot;</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Load files and datasets and and have fun with them</p>
+
+<pre><code class="r">data(iris)  # Load data
+lm(iris)    # Make a lineal regression
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = iris)
+## 
+## Coefficients:
+##       (Intercept)        Sepal.Width       Petal.Length  
+##            2.1713             0.4959             0.8292  
+##       Petal.Width  Speciesversicolor   Speciesvirginica  
+##           -0.3152            -0.7236            -1.0235
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>2. Statistical inference and simulation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Setting the global options
+Example: The exponential distribution</p>
+
+<pre><code class="r">lambda = 0.2           # lambda for all simulations
+n = 40                 # number of exponential random variables
+nsims = 1:10000        # number of simulated averages
+set.seed(901)
+means &lt;- data.frame(x=sapply(nsims,function(x) {mean(rexp(n,lambda))})) # necessary means
+head(means,2)          # show the results
+</code></pre>
+
+<pre><code>##          x
+## 1 3.981570
+## 2 4.148078
+</code></pre>
+
+<pre><code class="r">str(means)             # See a summary of the results
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    10000 obs. of  1 variable:
+##  $ x: num  3.98 4.15 5.38 7.41 5.73 ...
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Statistical inference in the real life</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">fit &lt;- lm(iris)   # Work with real data
+confint(fit)      # Identify intercepts and others
+</code></pre>
+
+<pre><code>##                        2.5 %      97.5 %
+## (Intercept)        1.6182321  2.72430044
+## Sepal.Width        0.3257653  0.66601260
+## Petal.Length       0.6937939  0.96469395
+## Petal.Width       -0.6140049 -0.01630542
+## Speciesversicolor -1.1982739 -0.24885002
+## Speciesvirginica  -1.6831329 -0.36386273
+</code></pre>
+
+<pre><code class="r">summary(fit$residuals)
+</code></pre>
+
+<pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+## -0.794200 -0.218700  0.008987  0.000000  0.202500  0.731000
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Data basic plot</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Plot your results and identify your creativity
+<img src="assets/fig/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='<strong>Reproducible Pitch Presentation</strong>'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='1. Knowing &quot;Data meets presentation&quot;'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='2. Statistical inference and simulation'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Statistical inference in the real life'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Data basic plot'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
