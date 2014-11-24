@@ -1,15 +1,19 @@
 ---
-title       : Slidify
-subtitle    : Data meets presentation
-author      : Rafael Reséndiz, Proffesor of Educative Assesment
-job         : UABC, Xochicalco
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}
-knit        : slidify::knit2slides
-
+title: "Slidify"
+author: "Rafael Reséndiz, Proffesor of Educative Assesment"
+highlighter: highlight.js
+output:
+  html_document:
+    keep_md: yes
+    number_sections: yes
+    toc: yes
+job: UABC, Xochicalco
+knit: slidify::knit2slides
+mode: selfcontained
+hitheme: tomorrow
+subtitle: Data meets presentation
+framework: io2012
+widgets: []
 ---
 
 ## **Reproducible Pitch Presentation**
